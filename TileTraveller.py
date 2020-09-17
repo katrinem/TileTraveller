@@ -11,23 +11,24 @@
 
 ## Description of the functions:
 
-# Display the directions available (function 1)
+# Function 1: display_directions(tile) Display the directions available (function 1)
 #   Input: position
 #   Do: Print directions available
 #   Return: None
 
-# Get input from user to choose direction (function 2)
-#   Input: direction
+# Function 2: get_direction(position) Get input from user to choose direction (function 2)
+#   Input: position
+#   Do: prompt user for direction (s,w,e,n)
 #   Do: Call error-check function
 #   If True: Return direction
 #   If False: Call direction function again AND calls itself again
 
-# Error-chekc the user's choice (function3, function 2 will call it)
+# Function 3: error_check_direction(direction,position) Error-check the user's choice (function3, function 2 will call it)
 #   Input: direction
 #   Do: Error-check and print the result
 #   Return: True or False
 
-# Update position (function 4)
+# Function 4: update_position() Update position (function 4)
 #   Input: position, direction
 #   Do: Update position
 #   Return: new position
@@ -36,10 +37,13 @@
 ## The main program:
 
 # Initialize a string variable for the player's location. It has 2 characters that specify the row and column, e.g. position = '11'.
+position = "11"
 
-# Wile position != '31'
-#   Call display_directions function
-#   Call Input function
-#         Error check input within Input function (or update_position)
-#   Call update_position function
+while position != '31':
+    display_directions(position)                    # Call display_directions function
+    direction = get_direction(position)             #   Call Input function
+                                                    #   Error check input within Input function (or update_position)
+    position = update_position(position, direction) #   Call update_position function
+print("Victory")
+
 
