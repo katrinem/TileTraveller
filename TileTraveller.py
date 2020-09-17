@@ -12,6 +12,21 @@
 ## Description of the functions:
 
 # Function 1: display_directions(tile) Display the directions available (function 1)
+
+def display_directions(tile):
+    if tile[1] == "1":
+        print("You can travel: (N)orth.")
+    elif tile == "12":
+        print("You can travel: (N)orth, (E)ast or (S)outh.")
+    elif tile == "13":
+        print("You can travel: (E)ast or (S)outh.")
+    elif tile == "23":
+        print("You can travel: (E)ast or (W)est")
+    elif tile == "22" or tile == "33":
+        print("You can travel: (S)outh or (W)est")
+    elif tile == "32":
+        print("You can travel: (N)orth or (S)outh")
+
 #   Input: position
 #   Do: Print directions available
 #   Return: None
@@ -39,11 +54,10 @@
 # Initialize a string variable for the player's location. It has 2 characters that specify the row and column, e.g. position = '11'.
 position = "11"
 
-while position != '31':
-    display_directions(position)                    # Call display_directions function
-    direction = get_direction(position)             #   Call Input function
+while position != '31':                   # Call display_directions function
+    direction = display_directions(position)             #   Call Input function
                                                     #   Error check input within Input function (or update_position)
-    position = update_position(position, direction) #   Call update_position function
-print("Victory")
+    #position = update_position(position, direction) #   Call update_position function
+#print("Victory")
 
 
